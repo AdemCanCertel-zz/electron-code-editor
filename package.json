@@ -1,0 +1,68 @@
+{
+    "name": "electron-code-editor",
+    "productName": "electron-code-editor",
+    "version": "1.0.0",
+    "description": "simple and small electron code editor",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "lint": "eslint src"
+    },
+    "keywords": [
+        "Electron",
+        "quick",
+        "start",
+        "tutorial",
+        "demo"
+    ],
+    "author": "AdemCan",
+    "license": "MIT",
+    "config": {
+        "forge": {
+            "make_targets": {
+                "win32": [
+                    "squirrel"
+                ],
+                "darwin": [
+                    "zip"
+                ],
+                "linux": [
+                    "deb",
+                    "rpm"
+                ]
+            },
+            "electronPackagerConfig": {},
+            "electronWinstallerConfig": {
+                "name": "electron_code_editor_forge"
+            },
+            "electronInstallerDebian": {},
+            "electronInstallerRedhat": {},
+            "github_repository": {
+                "owner": "",
+                "name": ""
+            },
+            "windowsStoreConfig": {
+                "packageName": "",
+                "name": "electroncodeeditorforge"
+            }
+        }
+    },
+    "dependencies": {
+        "electron-compile": "^6.1.2",
+        "monaco-loader": "^0.8.2"
+    },
+    "devDependencies": {
+        "babel-plugin-transform-async-to-generator": "^6.22.0",
+        "babel-preset-env": "^1.1.10",
+        "babel-preset-react": "^6.23.0",
+        "electron-forge": "^3.0.5",
+        "electron-prebuilt-compile": "1.4.15",
+        "eslint": "^3.16.1",
+        "eslint-config-airbnb": "^14.1.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-jsx-a11y": "^3.0.0",
+        "eslint-plugin-react": "^6.10.0"
+    }
+}

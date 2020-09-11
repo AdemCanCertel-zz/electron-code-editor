@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Electron Kod Editor</title>
+    <link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div id="titlebar">
+			<button id="save">Kaydet</button>
+		</div>
+		<div id="container"></div>
+	</body>
+
+  <script>
+    // Bu işlemde başka dosyaların da çalışmasını isteyebilirsiniz.
+    require('./renderer.js')
+  </script>
+</html>
