@@ -1,28 +1,28 @@
 import { app, BrowserWindow } from 'electron';
 
 
-// Pencere nesnesinin genel bir referansını tutun, yapmazsanız, pencere
-// JavaScript nesnesi çöp toplandığında otomatik olarak kapatılır.
-let anaMenü;
+// Keep a general reference of the window object, if you don't, the window
+// JavaScript object is automatically closed when garbage is collected.
+let mainMenu;
 
-const yeniPencere = () => {
-  // Tarayıcı penceresini oluşturun.
-  anaMenü = new BrowserWindow({
+const newWindow = () => {
+  // Build the browser window.
+  mainMenu = new BrowserWindow({
     width: 800,
     height: 600,
   });
 
-  // ve uygulamanın index.html'sini yükler.
-  anaMenü.loadURL(`file://${__dirname}/index.html`);
+  // and loads the application's index.html.
+  mainMenu.loadURL(`file://${__dirname}/index.html`);
 
-  anaMenü.webContents.openDevTools();
+  mainMenu.webContents.openDevTools();
 
-  anaMenü.on('closed', () => {
-    anaMenü = null;
+  mainMenu.on('closed', () => {
+    mainMenu = null;
   });
 };
 
-app.on('ready', yeniPencere);
+app.on('ready', newWindow);
 
 app.on('window-all-closed', () => {
 
@@ -32,7 +32,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (anaMenü === null) {
-    yeniPencere();
+  if (mainMenu === null) {
+    newWindow();
   }
 });
