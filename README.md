@@ -1,7 +1,7 @@
-# [Electron Code Editor](https://www.youtube.com/watch?v=vN-jgnyuxTk)
+# ElectronJS Code Editor
 
-:seedling: `$ git clone https://github.com/AdemCan0BEY/electron-code-editor`
+`$ git clone https://github.com/AdemCan0BEY/electron-code-editor`
 
-:triangular_flag_on_post: `npm install`
+`npm install`
 
-:mag: `npm start`
+`npm start`
