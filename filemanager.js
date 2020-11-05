@@ -8,19 +8,19 @@ class FileManager {
 
     ipcRenderer.on('open-file', (e, url) => this.openFile(url));
 
-    document.querySelector('#save').onclick = () => this.saveFile(); // Kaydetme alanı tanımlama
+    document.querySelector('#save').onclick = () => this.saveFile(); // Define a save area
   }
 
   openFile(url) {
-    const parsedUrl = (url.slice(0, 7) === 'file://') ? url.slice(7) : url; // Kaydedilen ana dizin yeri
+    const parsedUrl = (url.slice(0, 7) === 'file://') ? url.slice(7) : url; // Saved home directory location
 
-    fs.readFile(parsedUrl, 'utf-8', (err, data) => {  // Yazılım dilleri eklenebilir silinebilir.
-      this.editor.setModel(this.monaco.editor.createModel(data, 'javascript'));  // Aynı işlemleri burda uyguluyoruz alt alta koyulcak şekilde ayarlayın aynı hiza için (TAB) basabilirsiniz.
-      this.editor.setModel(this.monaco.editor.createModel(data, 'python')); // Aynı işlemleri burda uyguluyoruz alt alta koyulcak şekilde ayarlayın aynı hiza için (TAB) basabilirsiniz.
+    fs.readFile(parsedUrl, 'utf-8', (err, data) => {  // Software languages can be added and deleted.
+      this.editor.setModel(this.monaco.editor.createModel(data, 'javascript'));  // We apply the same procedures here, set it to be placed one under the other, you can press (TAB) for the same alignment.
+      this.editor.setModel(this.monaco.editor.createModel(data, 'python')); // We apply the same procedures here, set it to be placed one under the other, you can press (TAB) for the same alignment.
     });
   }
 
-  saveFile() {  // Kaydetme alanı
+  saveFile() {  // Save space
     remote.dialog.showSaveDialog((filename) => {
       if (!filename) return;
 
